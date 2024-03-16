@@ -12,3 +12,18 @@ LEFT JOIN EmployeeUNI ON Employees.id=EmployeeUNI.id;
 SELECT product_name, year, price
 FROM Sales
 LEFT JOIN Product ON Sales.product_id=Product.product_id; 
+
+--Basic joins 1581
+SELECT 
+    a.customer_id, 
+    COUNT(a.visit_id) as count_no_trans
+FROM 
+    Visits AS a
+LEFT JOIN 
+    Transactions AS b
+ON 
+    a.visit_id=b.visit_id
+WHERE 
+    amount IS NULL
+GROUP BY 
+    a.customer_id;
