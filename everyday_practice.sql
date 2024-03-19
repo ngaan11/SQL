@@ -27,3 +27,13 @@ WHERE
     amount IS NULL
 GROUP BY 
     a.customer_id;
+#570
+# Write your MySQL query statement below
+WITH t AS (SELECT managerId
+FROM Employee
+GROUP BY managerId
+HAVING COUNT(managerId) >=5)
+SELECT manager.name AS name
+FROM Employee manager
+JOIN t on manager.id=t.managerId
+
